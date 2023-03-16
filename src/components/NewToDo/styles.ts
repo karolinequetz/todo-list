@@ -9,8 +9,8 @@ export const ToDoFormContainer = styled.form`
     flex: 1;
     border-radius: 8px;
     border: 0;
-    background: ${(props) => props.theme["gray 400"]};
-
+    background: ${(props) => props.theme["gray 500"]};
+    color: ${(props) => props.theme["gray 300"]};
     padding: 1rem;
   }
   button {

@@ -19,7 +19,7 @@ interface Tasks {
 }
 interface ListItemProps {
   completeTask: (tasks: Tasks[], id: string) => void;
-  deleteTask: (id: string) => void;
+  deleteTask: (tasks: Tasks[], id: string) => void;
   tasks: Tasks[];
 }
 
@@ -30,12 +30,16 @@ export const ListItem = ({
 }: ListItemProps) => {
   const taskCount = useMemo(() => {
     const task = tasks.filter((task) => task.checked);
-    return tasks.length ? `${Number(task)} de ${tasks.length}` : 0;
+
+    return tasks.length ? `${Number(task.length)} de ${tasks.length}` : 0;
   }, [tasks]);
 
   const handleCheckTask = useCallback((tasks: Tasks[], id: string) => {
     completeTask(tasks, id);
-    console.log(id);
+  }, []);
+
+  const handleDelete = useCallback((tasks: Tasks[], id: string) => {
+    deleteTask(tasks, id);
   }, []);
 
   return (
@@ -60,7 +64,7 @@ export const ListItem = ({
                 <Check size={18} />
               </CheckButton>
               <span>{task.description}</span>
-              <DeleteTask>
+              <DeleteTask onClick={() => handleDelete(tasks, task.id)}>
                 <Trash size={20} />
               </DeleteTask>
             </Task>

@@ -26,6 +26,7 @@ export const NewToDo = () => {
       };
 
       setTasks((state) => [...state, newTask]);
+      setDescriptionTask("");
     },
     [tasks, descriptionTask]
   );
@@ -56,8 +57,10 @@ export const NewToDo = () => {
   );
 
   const deleteTask = useCallback(
-    (id: string) => {
-      tasks.filter((task) => task.id !== id);
+    (tasks: TaskProps[], id: string) => {
+      const tasksDelete = tasks.filter((task) => task.id !== id);
+
+      setTasks(tasksDelete);
     },
     [tasks]
   );

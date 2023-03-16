@@ -53,11 +53,14 @@ export const ClipboardImg = styled.img`
 
 export const Task = styled.div<CheckedItem>`
   display: flex;
+  overflow-wrap: break-word;
+  justify-content: space-between;
   align-items: flex-start;
 
   height: 4.5rem;
   gap: 0.75rem;
   padding: 1rem;
+  margin: 0 0 0.75rem;
 
   background: ${(props) => props.theme["gray 400"]};
   color: ${(props) => props.theme["gray 100"]};
@@ -72,6 +75,7 @@ export const Task = styled.div<CheckedItem>`
         text-decoration: line-through;
       `}
     max-width: 40.5rem;
+    flex: 1;
   }
 `;
 
