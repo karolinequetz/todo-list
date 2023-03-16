@@ -19,7 +19,8 @@ Este projeto é um desafio do curso Ignite da Rocketseat.
 
 ### Captura de tela
 
-![](./todo.gif)
+![](./todo.png)
+![](./todo1.png)
 
 ## Processo de desenvolvimento
 
